@@ -9,11 +9,15 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-connectSequelize().then(() => {
-  app.use(express.json());
-  app.use("/api", api);
+connectSequelize()
+  .then(() => {
+    app.use(express.json());
+    app.use("/api", api);
 
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to the database:", err);
   });
-});

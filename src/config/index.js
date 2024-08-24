@@ -5,13 +5,13 @@ dotenv.config();
 
 const config = {
   production: {
-    database: process.env.DB_NAME,
-    username: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST || "mysql",
-    port: process.env.DB_PORT || 3306,
-    infuraApiKey: process.env.INFURA_API_KEY,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
     dialect: "mysql",
+    infuraApiKey: process.env.INFURA_API_KEY,
   },
 };
 

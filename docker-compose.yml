@@ -8,10 +8,12 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
 
   app:
     build:
@@ -19,9 +21,16 @@ services:
       dockerfile: Dockerfile
     container_name: app-container
     environment:
+      INFURA_API_KEY: ${INFURA_API_KEY}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
       NODE_ENV: ${NODE_ENV}
       MSAPI_ENV: ${MSAPI_ENV}
       MSAPI_PORT: ${MSAPI_PORT}
+      MSAPI_VERSION: ${MSAPI_VERSION}
     ports:
       - "8080:8080"
     depends_on:
@@ -29,8 +38,7 @@ services:
     command: >
       sh -c "
       npx sequelize-cli db:migrate &&
-      npx sequelize-cli db:seed:all &&
-      node src/index.js
+      npx sequelize-cli db:seed:all
       "
 
 volumes:

@@ -1,8 +1,10 @@
 import { Sequelize } from "sequelize";
 import config from "../config/index.js";
 
+console.log(config);
+
 const sequelize = new Sequelize({
-  dialect: 'mysql',
+  dialect: "mysql",
   database: config.database,
   user: config.user,
   password: config.password,
