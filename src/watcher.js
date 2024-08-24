@@ -1,15 +1,12 @@
-import chokidar from "chokidar";
 import logger from "./logger.js";
+import { loadConfigurations } from "./services/configurationService.js";
 
-const watchChanges = (onChangeCallback) => {
-  const watcher = chokidar.watch("path/to/configuration/file", {
-    persistent: true,
-  });
+export const ONE_MINUTE_IN_MS = 60000;
 
-  watcher.on("change", async () => {
-    logger.info("Configuration file changed");
-    await onChangeCallback();
-  });
+// Hot-loading the configurations from the database
+export const watchChanges = (interval = ONE_MINUTE_IN_MS) => {
+  setInterval(async () => {
+    logger.info("Checking for configuration changes in the database");
+    await loadConfigurations();
+  }, interval);
 };
-
-export default watchChanges;
