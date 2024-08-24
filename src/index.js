@@ -3,13 +3,14 @@ import dotenv from "dotenv";
 import process from "process";
 import api from "./routes/index.js";
 import { connectSequelize } from "./db/connect.js";
+import { startMonitoring } from "./monitoring.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-connectSequelize()
+Promise.all([connectSequelize(), startMonitoring()])
   .then(() => {
     app.use(express.json());
     app.use("/api", api);

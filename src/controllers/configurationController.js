@@ -1,4 +1,5 @@
 import { Configuration } from "../db/models/index.js";
+import { loadConfigurations } from "../services/configurationService.js";
 
 export const createConfig = async (req, res) => {
   try {
@@ -11,7 +12,7 @@ export const createConfig = async (req, res) => {
 
 export const getConfigs = async (_, res) => {
   try {
-    const configs = await Configuration.findAll();
+    const configs = await loadConfigurations();
     res.json(configs);
   } catch (error) {
     res.status(500).json({ msg: "Failed to fetch configurations", error });
