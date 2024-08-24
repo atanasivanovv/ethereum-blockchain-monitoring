@@ -1,8 +1,8 @@
-import { sequelize } from "./sequelize-instance";
+import sequelize from "./instance.js";
 
 export const sync = () => {
   return sequelize
-    .sync({ force: false, alter: true })
+    .sync({ force: true, alter: true })
     .then(() => {
       console.log("Database synchronized successfully");
     })

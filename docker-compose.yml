@@ -8,7 +8,6 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -20,7 +19,6 @@ services:
       dockerfile: Dockerfile
     container_name: app-container
     environment:
-      MSAPI_VERSION: ${MSAPI_VERSION}
       NODE_ENV: ${NODE_ENV}
       MSAPI_ENV: ${MSAPI_ENV}
       MSAPI_PORT: ${MSAPI_PORT}

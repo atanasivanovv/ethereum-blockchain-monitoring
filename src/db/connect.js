@@ -1,5 +1,6 @@
 import sequelize from "./instance.js";
-import models from "./models/index.js";
+import "./associations.js";
+import * as models from "./models/index.js";
 import { sync } from "./sync.js";
 
 export const connectSequelize = () =>

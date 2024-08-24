@@ -1,9 +1,8 @@
-import { Sequelize } from "@sequelize/core";
-import { MySqlDialect } from "@sequelize/mysql";
+import { Sequelize } from "sequelize";
 import config from "../config/index.js";
 
 const sequelize = new Sequelize({
-  dialect: MySqlDialect,
+  dialect: 'mysql',
   database: config.database,
   user: config.user,
   password: config.password,

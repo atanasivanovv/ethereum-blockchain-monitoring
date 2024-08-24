@@ -2,21 +2,18 @@ import express from "express";
 import dotenv from "dotenv";
 import process from "process";
 import api from "./routes/index.js";
-import sequelize from "./db/instance.js";
+import { connectSequelize } from "./db/connect.js";
 
 dotenv.config();
-
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use("/api", api);
+const app = express();
 
-sequelize
-  .sync({ force: false })
-  .then(() => console.log("Database & tables created"))
-  .catch((err) => console.error("Error creating database & tables:", err));
+connectSequelize().then(() => {
+  app.use(express.json());
+  app.use("/api", api);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
