@@ -2,10 +2,10 @@
 FROM node:18
 
 # Set environment variables
-ENV MSAPI_VERSION=${MSAPI_VERSION}
+ENV API_VERSION=${API_VERSION}
 ENV NODE_ENV=production
-ENV MSAPI_ENV=production
-ENV MSAPI_PORT=8080
+ENV API_ENV=production
+ENV API_PORT=8080
 
 # Create app directory
 WORKDIR /usr/src/app
