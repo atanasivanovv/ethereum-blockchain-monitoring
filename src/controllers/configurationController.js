@@ -1,4 +1,4 @@
-import Configuration from "../models";
+import { Configuration } from "../models/index.js";
 
 export const createConfig = async (req, res) => {
   try {

@@ -1,6 +1,6 @@
 import express from "express";
-import config from "./config";
-import transaction from "./transaction";
+import config from "./config.js";
+import transaction from "./transaction.js";
 
 const router = express.Router();
 

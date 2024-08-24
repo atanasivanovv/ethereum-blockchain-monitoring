@@ -5,7 +5,7 @@ import {
   getConfigById,
   updateConfig,
   deleteConfig,
-} from "../controllers/configurationController";
+} from "../controllers/configurationController.js";
 
 const router = express.Router();
 

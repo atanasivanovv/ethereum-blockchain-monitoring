@@ -1,4 +1,4 @@
-import web3 from "../config/web3";
+import web3 from "../config/web3.js";
 
 export const getLatestBlock = async () => {
   try {

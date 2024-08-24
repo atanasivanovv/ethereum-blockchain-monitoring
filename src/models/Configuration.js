@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/sequelize";
+import sequelize from "../config/sequelize.js";
 
-const Config = sequelize.define("Config", {
+const Configuration = sequelize.define("Configuration", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -12,4 +12,4 @@ const Config = sequelize.define("Config", {
   },
 });
 
-export default Config;
+export default Configuration;

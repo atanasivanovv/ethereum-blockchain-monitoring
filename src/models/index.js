@@ -1,2 +1,4 @@
-export * from "./Configuration";
-export * from "./Transaction";
+import Configuration from "./Configuration.js";
+import Transaction from "./Transaction.js";
+
+export { Configuration, Transaction };

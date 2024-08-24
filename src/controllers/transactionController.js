@@ -1,4 +1,4 @@
-import { getLatestBlock, getTransaction } from "../services/blockchainService";
+import { getLatestBlock, getTransaction } from "../services/blockchainService.js";
 
 export const fetchLatestBlock = async (_, res) => {
   try {

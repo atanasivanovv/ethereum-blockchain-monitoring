@@ -2,7 +2,7 @@ import express from "express";
 import {
   fetchLatestBlock,
   fetchTransaction,
-} from "../controllers/transactionController";
+} from "../controllers/transactionController.js";
 
 const router = express.Router();
 
