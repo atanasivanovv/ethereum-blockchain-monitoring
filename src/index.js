@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
+import process from "process";
 import api from "./routes/index.js";
-import sequelize from "./config/sequelize.js";
+import sequelize from "./db/instance.js";
 
 dotenv.config();
 
