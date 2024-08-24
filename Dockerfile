@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14
+FROM node:18
 
 # Set environment variables
 ENV MSAPI_VERSION=${MSAPI_VERSION}
@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 8080
 
 # Define the command to run the app
-CMD [ "node", "server.js" ]
+CMD [ "node", "src/index.js" ]

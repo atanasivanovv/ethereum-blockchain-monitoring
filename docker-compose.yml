@@ -28,6 +28,12 @@ services:
       - "8080:8080"
     depends_on:
       - mysql
+    command: >
+      sh -c "
+      npx sequelize-cli db:migrate &&
+      npx sequelize-cli db:seed:all &&
+      node src/index.js
+      "
 
 volumes:
   mysql-data:

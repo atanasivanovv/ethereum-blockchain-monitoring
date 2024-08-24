@@ -14,6 +14,7 @@
     "@sequelize/core": "^7.0.0-alpha.41",
     "@sequelize/mysql": "7.0.0-alpha.41",
     "awilix": "10.0.2",
+    "babel-register": "6.26.0",
     "axios": "1.7.4",
     "dotenv": "16.4.5",
     "ethers": "6.13.2",
