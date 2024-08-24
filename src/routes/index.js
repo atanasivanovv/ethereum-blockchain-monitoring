@@ -1,10 +1,10 @@
 import express from "express";
-import config from "./config.js";
-import transaction from "./transaction.js";
+import configs from "./configs.js";
+import transactions from "./transactions.js";
 
 const router = express.Router();
 
-router.get("/config", config);
-router.get("/transaction", transaction);
+router.use("/configs", configs);
+router.use("/transactions", transactions);
 
 export default router;
